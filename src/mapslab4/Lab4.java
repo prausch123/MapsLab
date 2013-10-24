@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package mapslab2;
+package mapslab4;
 
 import common.Employee;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import java.util.Set;
 
 /**
  *
- * @author prausch
+ * @author Peter
  */
-public class Lab2 {
-    public static void main(String[] args) {
-        List emp = new ArrayList();
+public class Lab4 {
+        public static void main(String[] args) {
+        List<Employee> emp = new ArrayList<Employee>();
                 
         Employee e1 = new Employee(1, "Rausch", "Peter", "333-33-3333");
         Employee e2 = new Employee(2, "John", "Doe", "444-44-4444");
@@ -28,8 +28,12 @@ public class Lab2 {
         emp.add(e3);
         emp.add(e4);
         
-        System.out.println("Size of the list: " + emp.size());
-     
+        System.out.println("Size before duplicate removal: " + emp.size());
+        
+        Set<Employee> s = new HashSet<Employee>(emp);
+        emp = new ArrayList<Employee>(s);
+        
+        System.out.println("Size after duplicate removal: " + emp.size());
         
         // Display 2nd Item
         Employee secondItem = (Employee)emp.get(2);
